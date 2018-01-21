@@ -16,6 +16,7 @@ $client = new Predis\Client([
     'scheme' => 'tcp',
     'host'   => $redisip,
     'port'   => 6379,
+    'password' => 'aehrfuwj'
 ]);
 // $client->lpush('list1', 'bar');
 
