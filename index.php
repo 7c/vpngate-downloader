@@ -24,7 +24,10 @@ l("Downloading configuration...");
 $config = downloadConfig();
 l("Downloaded configuration with ".count($config)." items");
 if (count($config)>0) {
-    $client->lpush('vpngate:configs',json_encode($config));    
+    foreach($config as $c) {
+        $client->hset("configs",$c['ip'],json_encode($c));
+        // $client->lpush('vpngate:configs',json_encode($config));    
+    }
 }
 l("Finished operation");
 
